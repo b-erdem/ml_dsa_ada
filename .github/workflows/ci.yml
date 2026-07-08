@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    name: Build + test (Linux x86_64, ${{ matrix.parameter_set }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        parameter_set: [ML_DSA_44, ML_DSA_65, ML_DSA_87]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Alire
+        uses: alire-project/setup-alire@v4
+        with:
+          version: '2.1.0'
+
+      - name: Select parameter set
+        run: |
+          sed -i 's/default = "ML_DSA_[0-9]*"/default = "${{ matrix.parameter_set }}"/' alire.toml
+
+      - name: Build library
+        run: alr -n build
+
+      - name: Generate ACVP test program for active parameter set
+        working-directory: tests
+        run: python3 scripts/gen_acvp_full.py
+
+      - name: Build and run unit tests
+        working-directory: tests
+        run: |
+          alr -n exec -- gprbuild -P test_ml_dsa.gpr
+          ./obj/test_ml_dsa
+          ./obj/test_kat_ml_dsa
+
+      - name: Run NIST ACVP cross-validation (55 vectors)
+        working-directory: tests
+        run: ./obj/test_acvp_full
+
+  prove:
+    name: SPARK proof (level 2, ${{ matrix.parameter_set }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        parameter_set: [ML_DSA_44, ML_DSA_65, ML_DSA_87]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Alire
+        uses: alire-project/setup-alire@v4
+        with:
+          version: '2.1.0'
+
+      - name: Select parameter set
+        run: |
+          sed -i 's/default = "ML_DSA_[0-9]*"/default = "${{ matrix.parameter_set }}"/' alire.toml
+
+      - name: Install gnatprove
+        run: |
+          alr -n toolchain --select gnat_native gprbuild
+          # Most crates already declare gnatprove in depends-on; only
+          # add it when absent (alr errors on duplicate dependencies).
+          grep -q '^gnatprove' alire.toml || alr -n with gnatprove^15.1.0
+
+      - name: Run gnatprove
+        run: |
+          alr -n build
+          alr -n exec -- gnatprove -P ml_dsa_ada.gpr --level=2 --prover=z3,cvc5 --timeout=60 --report=fail
+
+  ct-disasm:
+    name: Constant-time disassembly check (x86-64)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Alire
+        uses: alire-project/setup-alire@v4
+        with:
+          version: '2.1.0'
+
+      - name: Build library at -O2
+        run: alr -n build
+
+      - name: Verify CT-critical functions are branchless
+        run: bash scripts/ct_disasm_check.sh

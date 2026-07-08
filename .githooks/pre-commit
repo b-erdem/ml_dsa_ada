@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# ada-experiments governance pre-commit hook — WARN-ONLY (per DEC-001/DEC-002).
+# Surfaces constitutional violations before they reach CI; never blocks a commit.
+# Bypass: git commit --no-verify
+# (Re)install across all crates: python3 ../governance/governance.py install-hooks
+top="$(git rev-parse --show-toplevel)"
+tool="$top/../governance/governance.py"
+if [ -f "$tool" ]; then
+  python3 "$tool" scan --crate "$top" || true
+else
+  echo "governance: shared tool not found at $tool; skipping scan"
+fi
+exit 0

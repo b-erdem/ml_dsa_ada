@@ -1,0 +1,1 @@
+vcs=1898 unproved=0 justified=0 assumes=0 spark_mode_off=0 level=2 provers=z3,cvc5,altergo date=2026-07-07

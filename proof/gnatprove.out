@@ -1,0 +1,170 @@
+=========================
+Summary of SPARK analysis
+=========================
+
+-------------------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total         Flow                               Provers   Justified   Unproved
+-------------------------------------------------------------------------------------------------------------
+Data Dependencies                 .            .                                     .           .          .
+Flow Dependencies                 .            .                                     .           .          .
+Initialization                  142          142                                     .           .          .
+Non-Aliasing                      .            .                                     .           .          .
+Run-time Checks                 891            .              891 (Trivial 2%, Z3 98%)           .          .
+Assertions                      525            .    525 (CVC5 0%, Trivial 0%, Z3 100%)           .          .
+Functional Contracts            241            .             241 (Trivial 0%, Z3 100%)           .          .
+LSP Verification                  .            .                                     .           .          .
+Termination                      99           89                               10 (Z3)           .          .
+Concurrency                       .            .                                     .           .          .
+-------------------------------------------------------------------------------------------------------------
+Total                          1898    231 (12%)                            1667 (88%)           .          .
+
+
+max steps used for successful proof: 12256
+
+============================
+Most difficult proved checks
+============================
+
+No check found with max time greater than 1 second
+
+========================
+Detailed analysis report
+========================
+
+Analyzed 16 units
+in unit ml_dsa, 1 subprograms and packages out of 1 analyzed
+  ML_DSA at ml_dsa.ads:14 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+in unit ml_dsa-ntt, 5 subprograms and packages out of 5 analyzed
+  ML_DSA.NTT at ml_dsa-ntt.ads:17 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.NTT.Butterfly at ml_dsa-ntt.adb:20 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (17 checks)
+  ML_DSA.NTT.InvNTT_ToMont at ml_dsa-ntt.ads:42 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (127 checks)
+  ML_DSA.NTT.NTT at ml_dsa-ntt.ads:32 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (107 checks)
+  ML_DSA.NTT.Pointwise_Montgomery at ml_dsa-ntt.ads:52 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (5 checks)
+in unit ml_dsa-ntt_zetas, 1 subprograms and packages out of 1 analyzed
+  ML_DSA.NTT_Zetas at ml_dsa-ntt_zetas.ads:11 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+in unit ml_dsa-packing, 17 subprograms and packages out of 17 analyzed
+  ML_DSA.Packing at ml_dsa-packing.ads:16 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Packing.Eta_Decode at ml_dsa-packing.adb:233 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (2 checks)
+  ML_DSA.Packing.Pack_PK at ml_dsa-packing.ads:99 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (18 checks)
+  ML_DSA.Packing.Pack_SK at ml_dsa-packing.ads:119 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (65 checks)
+  ML_DSA.Packing.Pack_Sig at ml_dsa-packing.ads:164 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (48 checks)
+  ML_DSA.Packing.PolyEta_Pack at ml_dsa-packing.ads:55 flow analyzed (0 errors, 0 checks, 3 warnings and 0 pragma Assume statements) and proved (17 checks)
+  ML_DSA.Packing.PolyEta_Unpack at ml_dsa-packing.ads:63 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (35 checks)
+  ML_DSA.Packing.PolyT0_Pack at ml_dsa-packing.ads:39 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (32 checks)
+  ML_DSA.Packing.PolyT0_Unpack at ml_dsa-packing.ads:47 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (35 checks)
+  ML_DSA.Packing.PolyT1_Pack at ml_dsa-packing.ads:25 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (18 checks)
+  ML_DSA.Packing.PolyT1_Unpack at ml_dsa-packing.ads:32 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (19 checks)
+  ML_DSA.Packing.PolyW1_Pack at ml_dsa-packing.ads:87 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (27 checks)
+  ML_DSA.Packing.PolyZ_Pack at ml_dsa-packing.ads:71 flow analyzed (0 errors, 0 checks, 3 warnings and 0 pragma Assume statements) and proved (41 checks)
+  ML_DSA.Packing.PolyZ_Unpack at ml_dsa-packing.ads:79 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (37 checks)
+  ML_DSA.Packing.Unpack_PK at ml_dsa-packing.ads:109 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (16 checks)
+  ML_DSA.Packing.Unpack_SK at ml_dsa-packing.ads:140 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (53 checks)
+  ML_DSA.Packing.Unpack_Sig at ml_dsa-packing.ads:185 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (42 checks)
+in unit ml_dsa-poly, 11 subprograms and packages out of 11 analyzed
+  ML_DSA.Poly at ml_dsa-poly.ads:5 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Poly.Poly_Add at ml_dsa-poly.ads:25 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.Poly.Poly_CAddQ at ml_dsa-poly.ads:19 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (9 checks)
+  ML_DSA.Poly.Poly_ChkNorm at ml_dsa-poly.ads:56 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.Poly.Poly_Decompose at ml_dsa-poly.ads:73 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  ML_DSA.Poly.Poly_Make_Hint at ml_dsa-poly.ads:81 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (10 checks)
+  ML_DSA.Poly.Poly_Power2Round at ml_dsa-poly.ads:65 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  ML_DSA.Poly.Poly_Reduce at ml_dsa-poly.ads:12 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Poly.Poly_ShiftL at ml_dsa-poly.ads:42 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (12 checks)
+  ML_DSA.Poly.Poly_Sub at ml_dsa-poly.ads:33 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.Poly.Poly_Use_Hint at ml_dsa-poly.ads:91 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+in unit ml_dsa-polyvec, 20 subprograms and packages out of 20 analyzed
+  ML_DSA.PolyVec at ml_dsa-polyvec.ads:13 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.PolyVec.PolyVecK_Add at ml_dsa-polyvec.ads:95 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.PolyVec.PolyVecK_CAddQ at ml_dsa-polyvec.ads:86 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.PolyVec.PolyVecK_ChkNorm at ml_dsa-polyvec.ads:155 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (11 checks)
+  ML_DSA.PolyVec.PolyVecK_Decompose at ml_dsa-polyvec.ads:204 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  ML_DSA.PolyVec.PolyVecK_InvNTT_ToMont at ml_dsa-polyvec.ads:125 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.PolyVec.PolyVecK_Make_Hint at ml_dsa-polyvec.ads:218 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.PolyVec.PolyVecK_NTT at ml_dsa-polyvec.ads:115 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.PolyVec.PolyVecK_Power2Round at ml_dsa-polyvec.ads:192 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  ML_DSA.PolyVec.PolyVecK_Reduce at ml_dsa-polyvec.ads:80 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.PolyVec.PolyVecK_ShiftL at ml_dsa-polyvec.ads:135 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.PolyVec.PolyVecK_Sub at ml_dsa-polyvec.ads:105 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.PolyVec.PolyVecK_Use_Hint at ml_dsa-polyvec.ads:229 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (5 checks)
+  ML_DSA.PolyVec.PolyVecL_Add at ml_dsa-polyvec.ads:28 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.PolyVec.PolyVecL_ChkNorm at ml_dsa-polyvec.ads:145 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (11 checks)
+  ML_DSA.PolyVec.PolyVecL_InvNTT_ToMont at ml_dsa-polyvec.ads:48 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.PolyVec.PolyVecL_NTT at ml_dsa-polyvec.ads:38 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.PolyVec.PolyVecL_Pointwise_Acc_Montgomery at ml_dsa-polyvec.ads:60 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (12 checks)
+  ML_DSA.PolyVec.PolyVecL_Reduce at ml_dsa-polyvec.ads:22 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.PolyVec.PolyVec_Matrix_Pointwise_Montgomery at ml_dsa-polyvec.ads:169 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+in unit ml_dsa-reduce, 4 subprograms and packages out of 4 analyzed
+  ML_DSA.Reduce at ml_dsa-reduce.ads:14 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Reduce.CAddQ at ml_dsa-reduce.ads:56 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (11 checks)
+  ML_DSA.Reduce.Montgomery_Reduce at ml_dsa-reduce.ads:32 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.Reduce.Reduce32 at ml_dsa-reduce.ads:44 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (10 checks)
+in unit ml_dsa-rounding, 6 subprograms and packages out of 6 analyzed
+  ML_DSA.Rounding at ml_dsa-rounding.ads:14 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Rounding.Decompose at ml_dsa-rounding.ads:61 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (50 checks)
+  ML_DSA.Rounding.HighBits at ml_dsa-rounding.ads:72 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (2 checks)
+  ML_DSA.Rounding.Make_Hint at ml_dsa-rounding.ads:81 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (1 checks)
+  ML_DSA.Rounding.Power2Round at ml_dsa-rounding.ads:42 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (11 checks)
+  ML_DSA.Rounding.Use_Hint at ml_dsa-rounding.ads:86 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+in unit ml_dsa-sampling, 8 subprograms and packages out of 8 analyzed
+  ML_DSA.Sampling at ml_dsa-sampling.ads:5 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Sampling.Poly_Challenge at ml_dsa-sampling.ads:101 flow analyzed (0 errors, 0 checks, 3 warnings and 0 pragma Assume statements) and proved (24 checks)
+  ML_DSA.Sampling.Poly_Uniform at ml_dsa-sampling.ads:65 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (19 checks)
+  ML_DSA.Sampling.Poly_Uniform_Eta at ml_dsa-sampling.ads:76 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (19 checks)
+  ML_DSA.Sampling.Poly_Uniform_Gamma1 at ml_dsa-sampling.ads:89 flow analyzed (0 errors, 0 checks, 3 warnings and 0 pragma Assume statements) and proved (33 checks)
+  ML_DSA.Sampling.Polyz_Unpack at ml_dsa-sampling.adb:199 flow analyzed (0 errors, 0 checks, 1 warnings and 0 pragma Assume statements) and proved (31 checks)
+  ML_DSA.Sampling.RejEta at ml_dsa-sampling.ads:42 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (39 checks)
+  ML_DSA.Sampling.RejUniform at ml_dsa-sampling.ads:18 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (39 checks)
+in unit ml_dsa-sign, 12 subprograms and packages out of 12 analyzed
+  ML_DSA.Sign at ml_dsa-sign.ads:2 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Sign.Expand_Mask at ml_dsa-sign.adb:90 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Sign.Expand_Matrix at ml_dsa-sign.adb:22 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (10 checks)
+  ML_DSA.Sign.Expand_S1 at ml_dsa-sign.adb:54 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Sign.Expand_S2 at ml_dsa-sign.adb:72 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Sign.KeyGen at ml_dsa-sign.ads:10 flow analyzed (0 errors, 0 checks, 12 warnings and 0 pragma Assume statements) and proved (13 checks)
+  ML_DSA.Sign.Pack_W1 at ml_dsa-sign.adb:164 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (16 checks)
+  ML_DSA.Sign.PolyVecK_Pointwise_Poly_Montgomery at ml_dsa-sign.adb:137 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (5 checks)
+  ML_DSA.Sign.PolyVecL_Pointwise_Poly_Montgomery at ml_dsa-sign.adb:111 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (5 checks)
+  ML_DSA.Sign.Sign at ml_dsa-sign.ads:24 flow analyzed (0 errors, 0 checks, 21 warnings and 0 pragma Assume statements) and proved (48 checks)
+  ML_DSA.Sign.Sign_With_Self_Verify at ml_dsa-sign.ads:50 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (3 checks)
+  ML_DSA.Sign.Verify at ml_dsa-sign.ads:71 flow analyzed (0 errors, 0 checks, 16 warnings and 0 pragma Assume statements) and proved (25 checks)
+in unit ml_dsa-symmetric, 12 subprograms and packages out of 12 analyzed
+  ML_DSA.Symmetric at ml_dsa-symmetric.ads:6 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Symmetric.From_SHA3 at ml_dsa-symmetric.adb:20 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (7 checks)
+  ML_DSA.Symmetric.SHAKE128 at ml_dsa-symmetric.ads:25 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (3 checks)
+  ML_DSA.Symmetric.SHAKE256 at ml_dsa-symmetric.ads:15 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (3 checks)
+  ML_DSA.Symmetric.SHAKE256_Absorb at ml_dsa-symmetric.ads:93 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (2 checks)
+  ML_DSA.Symmetric.SHAKE256_Init at ml_dsa-symmetric.ads:86 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (1 checks)
+  ML_DSA.Symmetric.SHAKE256_Squeeze at ml_dsa-symmetric.ads:107 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Symmetric.To_SHA3 at ml_dsa-symmetric.adb:6 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (8 checks)
+  ML_DSA.Symmetric.XOF128_Init_Absorb at ml_dsa-symmetric.ads:40 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  ML_DSA.Symmetric.XOF128_Squeeze at ml_dsa-symmetric.ads:50 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Symmetric.XOF256_Init_Absorb at ml_dsa-symmetric.ads:62 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  ML_DSA.Symmetric.XOF256_Squeeze at ml_dsa-symmetric.ads:72 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+in unit ml_dsa-wipe, 6 subprograms and packages out of 6 analyzed
+  ML_DSA.Wipe at ml_dsa-wipe.ads:16 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  ML_DSA.Wipe.Wipe_Byte_Array at ml_dsa-wipe.ads:21 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  ML_DSA.Wipe.Wipe_Poly_Matrix_KL at ml_dsa-wipe.ads:43 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Wipe.Wipe_Poly_Vector_K at ml_dsa-wipe.ads:31 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Wipe.Wipe_Poly_Vector_L at ml_dsa-wipe.ads:37 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+  ML_DSA.Wipe.Wipe_Polynomial at ml_dsa-wipe.ads:26 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)
+in unit ml_dsa_ada_config, 0 subprograms and packages out of 0 analyzed
+in unit sha3, 11 subprograms and packages out of 11 analyzed
+  SHA3 at sha3.ads:3 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  SHA3.Absorb at sha3.ads:71 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (31 checks)
+  SHA3.Extract_From_State at sha3.adb:43 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (14 checks)
+  SHA3.Init at sha3.ads:63 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (1 checks)
+  SHA3.SHA3_256 at sha3.ads:39 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (3 checks)
+  SHA3.SHA3_512 at sha3.ads:44 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (3 checks)
+  SHA3.SHAKE128 at sha3.ads:49 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (3 checks)
+  SHA3.SHAKE256 at sha3.ads:56 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (3 checks)
+  SHA3.Squeeze at sha3.ads:84 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (39 checks)
+  SHA3.XOR_Byte_Into_State at sha3.adb:7 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  SHA3.XOR_Into_State at sha3.adb:19 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (14 checks)
+in unit sha3-keccak, 3 subprograms and packages out of 3 analyzed
+  SHA3.Keccak at sha3-keccak.ads:1 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  SHA3.Keccak.Permute at sha3-keccak.ads:6 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (9 checks)
+  SHA3.Keccak.Rotate_Left_64 at sha3-keccak.adb:7 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (1 checks)
+in unit sha3-wipe, 3 subprograms and packages out of 3 analyzed
+  SHA3.Wipe at sha3-wipe.ads:14 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (0 checks)
+  SHA3.Wipe.Wipe_Byte_Array at sha3-wipe.ads:26 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (6 checks)
+  SHA3.Wipe.Wipe_Sponge_State at sha3-wipe.ads:19 flow analyzed (0 errors, 0 checks, 0 warnings and 0 pragma Assume statements) and proved (4 checks)

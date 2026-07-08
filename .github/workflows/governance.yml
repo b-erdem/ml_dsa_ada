@@ -1,0 +1,22 @@
+name: governance
+# tools/governance_check.py is a byte-for-byte copy of the workspace governance tool,
+# kept in sync by `governance.py sync-ci` (a workspace scan flags drift).
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  constitution:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Constitutional scan (blocking)
+        # The workspace backlog is clear, so this gates: a new blocking-class
+        # violation fails CI. Document a justified exception in .governance.toml to clear it.
+        run: python3 tools/governance_check.py scan --crate . --gate

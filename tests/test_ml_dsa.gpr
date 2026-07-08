@@ -1,0 +1,31 @@
+with "ml_dsa_ada";
+
+project Test_ML_DSA is
+
+   for Main use ("test_ml_dsa.adb", "test_kat_ml_dsa.adb",
+                 "test_acvp_full.adb");
+   for Object_Dir use "obj";
+   for Source_Dirs use ("src");
+   for Languages use ("Ada");
+
+   package Compiler is
+      for Switches ("Ada") use
+        ("-g", "-O2", "-gnatwa", "-gnatW8", "-gnatyM120",
+         "-gnat2022");
+   end Compiler;
+
+   type SDK_Type is ("macos", "none");
+   SDK : SDK_Type := External ("SDK", "none");
+
+   package Linker is
+      case SDK is
+         when "macos" =>
+            for Switches ("Ada") use
+              ("-L" & External ("SDK_LIB",
+                 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"));
+         when "none" =>
+            for Switches ("Ada") use ();
+      end case;
+   end Linker;
+
+end Test_ML_DSA;

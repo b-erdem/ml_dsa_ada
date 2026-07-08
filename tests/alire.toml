@@ -1,0 +1,19 @@
+name = "ml_dsa_ada_tests"
+description = "Internal test crate for ml_dsa_ada (not published)"
+version = "0.0.0"
+
+authors = ["Baris Erdem"]
+maintainers = ["Baris Erdem <baris@erdem.dev>"]
+maintainers-logins = ["b-erdem"]
+licenses = "GPL-3.0-only"
+
+project-files = ["test_ml_dsa.gpr"]
+
+[[depends-on]]
+ml_dsa_ada = "*"
+sha3_ada = "*"
+gnatprove = "^15.1.0"
+
+[[pins]]
+ml_dsa_ada = { path = ".." }
+sha3_ada = { url = "https://github.com/b-erdem/sha3_ada.git", commit = "a377b05efab4e52ab9526d57c982087d9fab3372" }
