@@ -41,4 +41,4 @@ gnatprove = "^15.1.0"
 sha3_ada = "~1.0"
 
 [[pins]]
-sha3_ada = { url = "https://github.com/b-erdem/sha3_ada.git", commit = "ad3c723da45258fde6a9a9f679205604cf6b1398" }
+sha3_ada = { url = "https://github.com/b-erdem/sha3_ada.git", commit = "a4f9e1a27dcf018b9b24ae3a40f89c87b8218638" }
