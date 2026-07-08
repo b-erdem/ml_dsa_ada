@@ -13,5 +13,5 @@ expires = "2026-12-31"
 
 [[exceptions]]
 principle = "P11"
-reason    = "Deliberate dual-licensing decision (2026-07-08, owner-approved): this crate is GPL-3.0-only publicly with commercial licenses available (see COMMERCIAL-LICENSE.md), diverging from the workspace Apache-2.0 default to retain a commercial-use lever on the high-value crypto artifacts. Sole authorship; relicensed before first public release. The sha3_ada dependency remains Apache-2.0 (one-way GPL-compatible)."
+reason    = "Deliberate dual-licensing decision (2026-07-08, owner-approved): this crate is GPL-3.0-only publicly with commercial licenses available (see COMMERCIAL-LICENSE.md), diverging from the workspace Apache-2.0 default to retain a commercial-use lever on the high-value crypto artifacts. Sole authorship; relicensed before first public release. The sha3_ada dependency is dual-licensed GPL-3.0-only + commercial as well (aligned 2026-07-08)."
 expires   = "2027-12-31"
