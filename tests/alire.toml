@@ -16,4 +16,4 @@ gnatprove = "^15.1.0"
 
 [[pins]]
 ml_dsa_ada = { path = ".." }
-sha3_ada = { url = "https://github.com/b-erdem/sha3_ada.git", commit = "a4f9e1a27dcf018b9b24ae3a40f89c87b8218638" }
+sha3_ada = { url = "https://github.com/b-erdem/sha3_ada.git", commit = "fa060726f5203b7b1ea4efae614e780e4caabb3a" }
