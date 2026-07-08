@@ -37,7 +37,6 @@ parameter_set = { type = "Enum", values = ["ML_DSA_44", "ML_DSA_65", "ML_DSA_87"
 
 [[depends-on]]
 gnat = ">=14.2.1"
-gnatprove = "^15.1.0"
 sha3_ada = "~1.0"
 
 [[pins]]
