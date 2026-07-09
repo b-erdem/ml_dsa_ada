@@ -10,10 +10,10 @@ licenses = "GPL-3.0-only"
 project-files = ["test_ml_dsa.gpr"]
 
 [[depends-on]]
-ml_dsa_ada = "*"
-sha3_ada = "*"
+ml_dsa = "*"
+sha3 = "*"
 gnatprove = "^15.1.0"
 
 [[pins]]
-ml_dsa_ada = { path = ".." }
-sha3_ada = { url = "https://github.com/b-erdem/sha3_ada.git", commit = "fa060726f5203b7b1ea4efae614e780e4caabb3a" }
+ml_dsa = { path = ".." }
+sha3 = { url = "https://github.com/b-erdem/sha3_ada.git", commit = "dd0b8954860bf488a196f6e2ddc374a3ba9cf6dd" }
