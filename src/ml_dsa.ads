@@ -1,5 +1,5 @@
 with Interfaces;
-with Ml_Dsa_Ada_Config;
+with Ml_Dsa_Config;
 
 --  ML-DSA (FIPS 204) — Module-Lattice-Based Digital Signature Algorithm.
 --  Top-level types and parameter-set-specific constants.
@@ -16,7 +16,7 @@ package ML_DSA is
    pragma Pure;
    pragma SPARK_Mode;
 
-   use type Ml_Dsa_Ada_Config.Parameter_Set_Kind;
+   use type Ml_Dsa_Config.Parameter_Set_Kind;
 
    --  Suppress "use clause has no effect" warnings: the use clauses
    --  ARE used by every package that withs us (operators on I32,
@@ -92,61 +92,61 @@ package ML_DSA is
    --  the Alire configuration enum.
    ----------------------------------------------------------------------
 
-   ML_DSA_K     : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 4,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 6,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 8);
+   ML_DSA_K     : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 4,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 6,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 8);
 
-   ML_DSA_L     : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 4,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 5,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 7);
+   ML_DSA_L     : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 4,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 5,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 7);
 
-   ML_DSA_Eta   : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 2,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 4,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 2);
+   ML_DSA_Eta   : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 2,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 4,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 2);
 
-   ML_DSA_Tau   : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 39,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 49,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 60);
+   ML_DSA_Tau   : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 39,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 49,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 60);
 
-   ML_DSA_Beta  : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 78,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 196,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 120);
+   ML_DSA_Beta  : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 78,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 196,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 120);
 
    --  Gamma1 selects the masking range. y has coefficients in
    --  (-Gamma1, Gamma1].
-   ML_DSA_Gamma1_Bits : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 17,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 19,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 19);
+   ML_DSA_Gamma1_Bits : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 17,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 19,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 19);
 
    ML_DSA_Gamma1 : constant := 2 ** ML_DSA_Gamma1_Bits;
 
    --  Gamma2 selects the Decompose granularity. Two variants:
    --   - ML-DSA-44: gamma2 = (Q-1)/88 = 95_232
    --   - ML-DSA-65, ML-DSA-87: gamma2 = (Q-1)/32 = 261_888
-   ML_DSA_Gamma2 : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => (Q - 1) / 88,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => (Q - 1) / 32,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => (Q - 1) / 32);
+   ML_DSA_Gamma2 : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => (Q - 1) / 88,
+     when Ml_Dsa_Config.Ml_Dsa_65 => (Q - 1) / 32,
+     when Ml_Dsa_Config.Ml_Dsa_87 => (Q - 1) / 32);
 
    --  Maximum total number of hint bits (size of h) the verifier will
    --  accept. Signing rejects when more hints than Omega are needed.
-   ML_DSA_Omega : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 80,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 55,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 75);
+   ML_DSA_Omega : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 80,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 55,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 75);
 
    --  Length of c~ (the challenge hash) and the commitment hash mu in
    --  bytes. (FIPS 204 Lambda parameter.) Tied to NIST security level.
-   C_Tilde_Bytes : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 32,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 48,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 64);
+   C_Tilde_Bytes : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 32,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 48,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 64);
 
    --  Symmetric byte sizes. Seeds: rho/key/tr/rnd are 32 bytes;
    --  rhoprime is 64 bytes (CRH output).
@@ -166,18 +166,18 @@ package ML_DSA is
    --    w1 (gamma2=(Q-1)/32): 4 bits/coeff -> 128 bytes
    Poly_T1_Packed_Bytes : constant := 320;
    Poly_T0_Packed_Bytes : constant := 416;
-   Poly_Eta_Packed_Bytes : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 96,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 128,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 96);
-   Poly_Z_Packed_Bytes  : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 576,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 640,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 640);
-   Poly_W1_Packed_Bytes : constant := (case Ml_Dsa_Ada_Config.Parameter_Set is
-     when Ml_Dsa_Ada_Config.Ml_Dsa_44 => 192,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_65 => 128,
-     when Ml_Dsa_Ada_Config.Ml_Dsa_87 => 128);
+   Poly_Eta_Packed_Bytes : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 96,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 128,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 96);
+   Poly_Z_Packed_Bytes  : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 576,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 640,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 640);
+   Poly_W1_Packed_Bytes : constant := (case Ml_Dsa_Config.Parameter_Set is
+     when Ml_Dsa_Config.Ml_Dsa_44 => 192,
+     when Ml_Dsa_Config.Ml_Dsa_65 => 128,
+     when Ml_Dsa_Config.Ml_Dsa_87 => 128);
 
    --  FIPS 204 public key: rho || t1 (packed).
    PK_Bytes : constant :=

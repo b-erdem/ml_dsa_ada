@@ -1,4 +1,4 @@
-with "config/ml_dsa_ada_config.gpr";
+with "config/ml_dsa_config.gpr";
 with "sha3_ada";
 
 library project ML_DSA_Ada is
