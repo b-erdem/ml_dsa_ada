@@ -38,7 +38,7 @@ from pathlib import Path
 # Workspace-wide invariants (P11 — cross-crate coherence).                     #
 # --------------------------------------------------------------------------- #
 WORKSPACE_LICENSE = "Apache-2.0"
-WORKSPACE_EMAIL = "baris@erdem.dev"
+WORKSPACE_EMAIL = "brserdem@proton.me"
 
 ALL_PRINCIPLES = [f"P{i}" for i in range(1, 13)]
 

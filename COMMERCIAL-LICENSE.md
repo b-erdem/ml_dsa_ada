@@ -15,7 +15,7 @@ proprietary products without copyleft obligations and may be combined
 with certification-evidence and support packages (SPARK proof
 evidence, tool-qualification material, priority fixes).
 
-Contact: Baris Erdem <baris@erdem.dev>
+Contact: Baris Erdem <brserdem@proton.me>
 
 Unless you have a signed commercial license agreement, your use of
 this software is governed exclusively by the GPL-3.0-only terms in

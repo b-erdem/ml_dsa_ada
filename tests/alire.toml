@@ -3,7 +3,7 @@ description = "Internal test crate for ml_dsa_ada (not published)"
 version = "0.0.0"
 
 authors = ["Baris Erdem"]
-maintainers = ["Baris Erdem <baris@erdem.dev>"]
+maintainers = ["Baris Erdem <brserdem@proton.me>"]
 maintainers-logins = ["b-erdem"]
 licenses = "GPL-3.0-only"
 

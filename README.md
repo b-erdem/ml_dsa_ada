@@ -196,4 +196,4 @@ Dual-licensed:
   distributed derivative works must be GPL-licensed too.
 - **Commercial license** for proprietary/closed-source products —
   see [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md) or contact
-  <baris@erdem.dev>.
+  <brserdem@proton.me>.

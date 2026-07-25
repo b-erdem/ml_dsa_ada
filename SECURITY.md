@@ -3,7 +3,7 @@
 ## Reporting Vulnerabilities
 
 Report security issues privately via GitHub Security Advisories or email
-`baris@erdem.dev`. Do not open public issues for vulnerabilities.
+`brserdem@proton.me`. Do not open public issues for vulnerabilities.
 
 Disclosure SLA: acknowledgement within 7 days, fix or mitigation within
 90 days for high-severity issues.
